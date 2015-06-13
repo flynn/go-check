@@ -932,12 +932,10 @@ func (ow *outputWriter) Write(content []byte) (n int, err error) {
 }
 
 func (ow *outputWriter) WriteCallStarted(label string, c *C) {
-	if ow.Stream {
-		header := renderCallHeader(label, c, "", "\n")
-		ow.m.Lock()
-		ow.writer.Write([]byte(header))
-		ow.m.Unlock()
-	}
+	header := renderCallHeader(label, c, "", "\n")
+	ow.m.Lock()
+	ow.writer.Write([]byte(header))
+	ow.m.Unlock()
 }
 
 func (ow *outputWriter) WriteCallProblem(label string, c *C) {
