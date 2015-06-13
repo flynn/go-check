@@ -984,6 +984,6 @@ func (ow *outputWriter) WriteCallSuccess(label string, c *C) {
 
 func renderCallHeader(label string, c *C, prefix, suffix string) string {
 	pc := c.method.PC()
-	return fmt.Sprintf("%s%s: %s: %s%s", prefix, label, niceFuncPath(pc),
+	return fmt.Sprintf("%s%s %s: %s: %s%s", prefix, time.Now().Format("15:04:05.000"), label, niceFuncPath(pc),
 		niceFuncName(pc), suffix)
 }
